@@ -12,6 +12,7 @@ assets
 templates
 
 # Development (Generated) #
+###########################
 src/css
 src/js/custom.js
 src/js/vendor.js
