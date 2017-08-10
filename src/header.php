@@ -55,6 +55,12 @@
 		}
 		?>
 
+		<div class="container">
+
+		<?php
+
+		// The site branding
+		?>
 		<div class="site-branding">
 			<?php
 
@@ -79,13 +85,20 @@
 			
 		</div><!-- .site-branding -->
 
-		<div class="site-navigation">
+		<?php
 
-			<div class="site-navigation-control">
-				<a href="#" id="site-navigation-toggle">
-					<?php _e( 'Menu', 'brainrider-boilerplate' ) ?>
-				</a><!-- .site-navigation-toggle -->
-			</div><!-- .site-navigation-control -->
+		// The mobile site navigation controls
+		?>
+		<div class="site-navigation-control">
+			<a href="#" id="site-navigation-toggle">
+			<?php _e( 'Menu', 'brainrider-boilerplate' ) ?>
+			</a><!-- .site-navigation-toggle -->
+		</div><!-- .site-navigation-control -->
+
+		<?php
+			// The site navigation
+		?>
+		<div class="site-navigation">
 
 			<nav class="primary-navigation">
 				<?php echo $header_menu_locations[ 'primary' ]; ?>
@@ -98,7 +111,7 @@
 			$navigation_cta_text	= get_field( 'navigation_cta_text', 'option' );
 			$navigation_cta_target	= get_field( 'navigation_cta_target', 'option' );
 
-			// Display the primary navigation CTA
+			// The site navigation CTA
 			if ( $navigation_cta_text
 				 && $navigation_cta_url ) { ?>
 
