@@ -1,0 +1,18 @@
+# NPM #
+#######
+node_modules
+
+# Bower #
+#########
+bower_components
+
+# Production #
+##############
+assets
+templates
+
+# Development (Generated) #
+src/css
+src/js/custom.js
+src/js/vendor.js
+src/img/*-opt*

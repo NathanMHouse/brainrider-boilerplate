@@ -1,0 +1,24 @@
+{
+  "name": "brainrider-boilerplate",
+  "description": "Boilerplate startup theme for use with Brainrider web projects.",
+  "main": "index.js",
+  "authors": [
+    "Nathan M. House"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/NathanMHouse/brainrider-boilerplate",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1"
+  },
+  "devDependencies": {
+    "foundation-sites": "^6.4.1"
+  }
+}
