@@ -52,6 +52,7 @@ if ( ! function_exists( 'br_bp_setup' ) ) :
 
 			// Header menus
 			'primary'	=> __( 'Header Primary Menu', 'brainrider-boilerplate' ),
+			'secondary' => __( 'Header Secondary Menu', 'brainrider-boilerplate' ),
 
 			// Add other header menus as appropriate
 			// ...

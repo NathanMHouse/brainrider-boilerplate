@@ -36,6 +36,7 @@
 		// Define the header menu name(s)
 		$header_menu_locations = array(
 			'primary',
+			'secondary',
 		);
 
 		// Create variable to store header menu(s)
@@ -49,7 +50,7 @@
 				'container'			=> null,
 				'echo'				=> false,
 				'depth'				=> 2,
-				'items_wrap'		=> '%3$s',
+				'items_wrap'		=> '<ul>%3$s</ul>',
 				'fallback_cb'		=> false
 			) );
 		}
@@ -57,75 +58,88 @@
 
 		<div class="container">
 
-		<?php
-
-		// The site branding
-		?>
-		<div class="site-branding">
 			<?php
 
-			// Vars
-			$navigation_logo = get_field( 'navigation_logo', 'option' );
-			
-			// Display the logo
-			if ( $navigation_logo ) { ?>
+			// The site branding
+			?>
+			<div class="site-branding">
+				<?php
 
-				<a href="/">
-					<img src="<?php echo $navigation_logo['url']; ?>" alt="<?php echo get_bloginfo( 'name' ); ?>">
-				</a>
+				// Vars
+				$navigation_logo = get_field( 'navigation_logo', 'option' );
+				
+				// Display the logo
+				if ( $navigation_logo ) { ?>
 
-			<?php 
+					<a href="/">
+						<img src="<?php echo $navigation_logo['url']; ?>" alt="<?php echo get_bloginfo( 'name' ); ?>">
+					</a>
 
-			// Display the site name as text if no logo
-			} else { ?>
+				<?php 
 
-				<h1><a href="/"><?php echo get_bloginfo( 'name' ); ?></a></h1>
+				// Display the site name as text if no logo
+				} else { ?>
 
-			<?php } ?>
-			
-		</div><!-- .site-branding -->
+					<h1><a href="/"><?php echo get_bloginfo( 'name' ); ?></a></h1>
 
-		<?php
+				<?php } ?>
+				
+			</div><!-- .site-branding -->
 
-		// The mobile site navigation controls
-		?>
-		<div class="site-navigation-control">
-			<a href="#" id="site-navigation-toggle">
-			<?php _e( 'Menu', 'brainrider-boilerplate' ) ?>
-			</a><!-- .site-navigation-toggle -->
-		</div><!-- .site-navigation-control -->
+			<?php
 
-		<?php
+			// The mobile site navigation controls
+			?>
+			<div class="site-navigation-control">
+				<a href="#" id="site-navigation-toggle">
+				<?php _e( 'Menu', 'brainrider-boilerplate' ) ?>
+				</a><!-- .site-navigation-toggle -->
+			</div><!-- .site-navigation-control -->
+
+			<?php
+
 			// The site navigation
-		?>
-		<div class="site-navigation">
+			?>
+			<div class="site-navigation">
 
-			<nav class="primary-navigation">
-				<?php echo $header_menu_locations[ 'primary' ]; ?>
-			</nav><!-- .primary-navigation -->
+				<?
 
-			<?php
+				// The secondary navigation
+				?>
 
-			// Vars
-			$navigation_cta_url		= get_field( 'navigation_cta_url', 'option' );
-			$navigation_cta_text	= get_field( 'navigation_cta_text', 'option' );
-			$navigation_cta_target	= get_field( 'navigation_cta_target', 'option' );
+				<nav class="primary-navigation">
+					<?php echo $header_menu_locations[ 'secondary' ]; ?>
+				</nav><!-- .secondary-navigation -->
 
-			// The site navigation CTA
-			if ( $navigation_cta_text
-				 && $navigation_cta_url ) { ?>
+				<?php
 
-				<div class="primary-navigation-cta">
-					<a href="<?php echo $navigation_cta_url; ?>"
-					   target="<?php echo $navigation_cta_target; ?>" 
-					   class="button button-primary">
-					   <?php echo $navigation_cta_text; ?>
-				   	</a>
-				</div><!-- .primary-navigation-cta -->
+				// Vars
+				$navigation_cta_url		= get_field( 'navigation_cta_url', 'option' );
+				$navigation_cta_text	= get_field( 'navigation_cta_text', 'option' );
+				$navigation_cta_target	= get_field( 'navigation_cta_target', 'option' );
 
-			<?php } ?>
+				// The site navigation CTA
+				if ( $navigation_cta_text
+					 && $navigation_cta_url ) { ?>
 
-		</div><!-- .site-navigation -->
+					<div class="navigation-cta">
+						<a href="<?php echo $navigation_cta_url; ?>"
+						   target="<?php echo $navigation_cta_target; ?>" 
+						   class="button button-primary">
+						   <?php echo $navigation_cta_text; ?>
+					   	</a><!-- .button -->
+					</div><!-- .navigation-cta -->
+
+				<?php } 
+
+				// The primary navigation
+				?>
+				<nav class="primary-navigation">
+					<?php echo $header_menu_locations[ 'primary' ]; ?>
+				</nav><!-- .primary-navigation -->
+				
+			</div><!-- .site-navigation -->
+		</div><!-- .container -->
 	</header><!-- .site-header -->
 
 	<div id="content" class="site-content">

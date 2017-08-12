@@ -21,8 +21,6 @@ var config = {
 		// src order
 		src: [
 			'scss/style.scss',
-			'scss/test.scss',
-			'scss/_sprites.scss'
 			// Other .scss files...
 		]
 	},
@@ -32,7 +30,8 @@ var config = {
 
 		// src order
 		src: [
-			'js/custom/custom-example.js'
+			'js/custom/custom-example.js',
+			'js/custom/navigation.js',
 			// Other custom .js files...
 		]
 	},
