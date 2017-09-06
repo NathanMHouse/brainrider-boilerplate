@@ -1,10 +1,12 @@
 <?php
 /**
+ * Footer Template
+ *
  * The template for displaying the footer (src)
  *
  *
  * @package Brainrider-Boilerplate
- * @since	1.0.0
+ * @since   1.0.0
  *
  */
 
@@ -30,15 +32,16 @@
 				if ( $footer_logo ) {
 				?>
 					<div class="col-md-12">
-						<img src="<?php echo $footer_logo['url']; ?>" 
-						 	 alt="<?php echo $footer_logo['alt']; ?>"
-						 	 class="footer-logo">
-				 	 </div><!-- .col -->
-				<?php 
+						<img src="<?php echo esc_attr( $footer_logo['url'] ); ?>" 
+							 alt="<?php echo esc_attr( $footer_logo['alt'] ); ?>"
+							 class="footer-logo">
+					  </div><!-- .col -->
+				<?php
 
 				// Else if no logo found, just display site name
-				} else { ?>
-					<h2><?php echo get_bloginfo( 'name' ); ?></h2>
+				} else {
+				?>
+					<h2><?php echo esc_html( get_bloginfo( 'name' ) ); ?></h2>
 				<?php } ?>
 			</div><!-- .row -->
 
@@ -46,7 +49,7 @@
 
 				<?php
 
-				// The footer menus setup (site)
+				// The footer menus setup
 
 				// Define an array of menu location slugs for footer
 				$footer_menu_locations = array(
@@ -69,15 +72,17 @@
 				foreach ( $footer_menu_locations as $location ) {
 
 					// Get the menu
-					$footer_menus[ $location ]['menu'] = wp_nav_menu( array(
-						'theme_location'	=> $location,
-						'container'			=> null,
-						'echo'				=> false,
-						'depth'				=> 1,
-						'items_wrap'		=> '%3$s',
-						'fallback_cb'		=> false,
-					) );
-				} 
+					$footer_menus[ $location ]['menu'] = wp_nav_menu(
+						array(
+							'theme_location'    => $location,
+							'container'         => null,
+							'echo'              => false,
+							'depth'             => 1,
+							'items_wrap'        => '%3$s',
+							'fallback_cb'       => false,
+						)
+					);
+				}
 
 				// The footer menus setup (social)
 
@@ -101,7 +106,7 @@
 				foreach ( $social_media_services as $service ) {
 
 					// Get the URL
-					$link = $footer_social_media[$service];
+					$link = $footer_social_media[ $service ];
 
 					if ( $link ) {
 
@@ -110,13 +115,14 @@
 						$social_menu .= str_replace( '_', '-', $service );
 						$social_menu .= '"</i></a></li> ';
 					}
-				} ?>
+				}
+				?>
 
 				<?php
 
 				// Check if footer menus exist
 				if ( $footer_menus['footer_primary']['menu']
-					 || $footer_menus['footer_secondary']['menu'] 
+					 || $footer_menus['footer_secondary']['menu']
 					 || $social_menu ) {
 				?>
 					<div class="footer-menus col-md-8 col-md-push-4">
@@ -125,28 +131,74 @@
 							<?php
 
 							// The footer primary menu
-							if ( $footer_menus['footer_primary_top']['menu'] ) { ?>
+							if ( $footer_menus['footer_primary_top']['menu'] ) {
+							?>
 								<div class="col-md-4">
 									<ul class="footer-primary footer-list-menu">
-										<?php echo $footer_menus['footer_primary']['menu']; ?>
+										<?php
+										echo wp_kses(
+											$footer_menus['footer_primary']['menu'],
+											array(
+												'li' => array(
+													'id'    => array(),
+													'class' => array(),
+												),
+												'a'  => array(
+													'href'  => array(),
+												),
+											)
+										);
+										?>
 									</ul><!-- .footer-primary-top -->
 								</div><!-- .col -->
-							<?php }
+							<?php
+							}
 
 							// The footer secondary menu
-							if ( $footer_menus['footer_secondary']['menu'] ) { ?>
+							if ( $footer_menus['footer_secondary']['menu'] ) {
+							?>
 								<div class="col-md-4">
 									<ul class="footer-secondary footer-list-menu">
-										<?php echo $footer_menus['footer_secondary']['menu']; ?>
+										<?php
+										echo wp_kses(
+											$footer_menus['footer_secondary']['menu'],
+											array(
+												'li' => array(
+													'id'    => array(),
+													'class' => array(),
+												),
+												'a'  => array(
+													'href'  => array(),
+												),
+											)
+										);
+										?>
 									</ul><!-- .footer-secondary -->
 								</div><!-- .col -->
-							<?php } 
+							<?php
+							}
 
 							// The social menu
-							if ( $social_menu ) { ?>
+							if ( $social_menu ) {
+							?>
 								<div class="col-md-4">
 									<ul class="footer-social">
-										<?php echo $social_menu; ?>
+										<?php
+										echo wp_kses(
+											$social_menu,
+											array(
+												'li' => array(
+													'class' => array(),
+												),
+												'a'  => array(
+													'href'  => array(),
+												),
+												'i'  => array(
+													'class' => array(),
+												),
+											)
+										);
+										?>
 									</ul><!-- .footer-social -->
 								</div><!-- .col -->
 							<?php } ?>
@@ -154,7 +206,8 @@
 						</div><!-- .row -->
 					</div><!-- .footer-menus -->
 
-				<?php }
+				<?php
+				}
 
 				// The footer contact details
 				?>
@@ -164,7 +217,7 @@
 						<li><?php echo 'Address - replace w/ ACF values'; ?></li>
 						<li><?php echo 'Address - replace w/ ACF values'; ?></li>
 						<li><?php echo 'Address - replace w/ ACF values'; ?></li>
-						<?php 
+						<?php
 
 						// Add lines as needed
 						?>

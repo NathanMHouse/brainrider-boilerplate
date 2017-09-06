@@ -1,10 +1,12 @@
 <?php
 /**
+ * Single Template
+ *
  * The template for displaying single posts (src)
  *
  *
  * @package Brainrider-Boilerplate
- * @since	1.0.0
+ * @since   1.0.0
  *
  */
 
@@ -14,7 +16,9 @@ get_header(); ?>
 		<main id="main" class="site-main">
 
 		<?php
-		while ( have_posts() ) : the_post();
+		while ( have_posts() ) :
+
+			the_post();
 
 			get_template_part( 'template-parts/content', get_post_format() );
 

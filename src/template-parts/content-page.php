@@ -1,10 +1,12 @@
 <?php
 /**
+ * Content Page Template
+ *
  * Template part for displaying page content (src)
  *
  *
  * @package Brainrider-Boilerplate
- * @since	1.0.0
+ * @since   1.0.0
  */
 ?>
 
@@ -13,24 +15,24 @@
 		<div class="row">
 			<div class="entry-content col-md-8">
 
-				<?php 
+				<?php
 
 				// The page content
-				the_content(); 
-				wp_link_pages( array(
-				'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'brainrider-boilerplate' ) . '</span>',
-				'after'       => '</div>',
-				'link_before' => '<span>',
-				'link_after'  => '</span>',
-				'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'brainrider-boilerplate' ) . ' </span>%',
-				'separator'   => '<span class="screen-reader-text">, </span>',
-				) );
-				?>
-		
-				<?php 
+				the_content();
+				wp_link_pages(
+					array(
+						'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'brainrider-boilerplate' ) . '</span>',
+						'after'       => '</div>',
+						'link_before' => '<span>',
+						'link_after'  => '</span>',
+						'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'brainrider-boilerplate' ) . ' </span>%',
+						'separator'   => '<span class="screen-reader-text">, </span>',
+					)
+				);
 
 				// The page footer
-				if ( get_edit_post_link() ) : ?>
+				if ( get_edit_post_link() ) :
+				?>
 					<footer class="entry-footer">
 						<?php
 							edit_post_link(
@@ -64,4 +66,3 @@
 		</div><!-- .row -->
 	</div><!-- .container -->
 </article><!-- #post-<?php the_ID(); ?> -->
-

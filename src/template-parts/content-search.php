@@ -1,10 +1,12 @@
 <?php
 /**
+ * Content Search Template
+ *
  * Template part for displaying results in search pages (src)
  *
  *
  * @package Brainrider-Boilerplate
- * @since	1.0.0
+ * @since   1.0.0
  */
 
 ?>

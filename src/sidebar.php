@@ -1,10 +1,12 @@
 <?php
 /**
+ * Sidebar Template
+ *
  * The template for the main widget area (src)
  *
  *
  * @package Brainrider-Boilerplate
- * @since	1.0.0
+ * @since   1.0.0
  *
  */
 

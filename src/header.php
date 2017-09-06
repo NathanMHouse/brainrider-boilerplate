@@ -1,10 +1,12 @@
 <?php
 /**
+ * Header Template
+ *
  * The header file (src)
  *
  *
  * @package Brainrider-Boilerplate
- * @since	1.0.0
+ * @since   1.0.0
  *
  */
 
@@ -45,14 +47,16 @@
 		// Create output for header menu(s) and assign to variable
 		foreach ( $header_menu_locations as $location ) {
 
-			$header_menu_locations[ $location ] = wp_nav_menu( array(
-				'theme_location'	=> $location,
-				'container'			=> null,
-				'echo'				=> false,
-				'depth'				=> 2,
-				'items_wrap'		=> '<ul>%3$s</ul>',
-				'fallback_cb'		=> false
-			) );
+			$header_menu_locations[ $location ] = wp_nav_menu(
+				array(
+					'theme_location'    => $location,
+					'container'         => null,
+					'echo'              => false,
+					'depth'             => 2,
+					'items_wrap'        => '<ul>%3$s</ul>',
+					'fallback_cb'       => false,
+				)
+			);
 		}
 		?>
 
@@ -67,20 +71,22 @@
 
 				// Vars
 				$navigation_logo = get_field( 'navigation_logo', 'option' );
-				
+
 				// Display the logo
-				if ( $navigation_logo ) { ?>
+				if ( $navigation_logo ) {
+				?>
 
 					<a href="/">
-						<img src="<?php echo $navigation_logo['url']; ?>" alt="<?php echo get_bloginfo( 'name' ); ?>">
+						<img src="<?php echo esc_attr( $navigation_logo['url'] ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
 					</a>
 
-				<?php 
+				<?php
 
 				// Display the site name as text if no logo
-				} else { ?>
+				} else {
+				?>
 
-					<h1><a href="/"><?php echo get_bloginfo( 'name' ); ?></a></h1>
+					<h1><a href="/"><?php echo esc_attr( get_bloginfo( 'name' ) ); ?></a></h1>
 
 				<?php } ?>
 				
@@ -92,7 +98,7 @@
 			?>
 			<div class="site-navigation-control">
 				<a href="#" id="site-navigation-toggle">
-				<?php _e( 'Menu', 'brainrider-boilerplate' ) ?>
+				<?php esc_html_e( 'Menu', 'brainrider-boilerplate' ); ?>
 				</a><!-- .site-navigation-toggle -->
 			</div><!-- .site-navigation-control -->
 
@@ -102,40 +108,65 @@
 			?>
 			<div class="site-navigation">
 
-				<?
+				<?php
 
 				// The secondary navigation
 				?>
-
-				<nav class="primary-navigation">
-					<?php echo $header_menu_locations[ 'secondary' ]; ?>
-				</nav><!-- .secondary-navigation -->
+				<nav class="secondary-navigation">
+					<?php
+					echo wp_kses(
+						$header_menu_locations['secondary'],
+						array(
+							'li' => array(
+								'class' => array(),
+							),
+							'a'  => array(
+								'href' => array(),
+							),
+						)
+					);
+					?>
+				</nav><!-- .secondary-navigation -->,
 
 				<?php
 
 				// Vars
-				$navigation_cta_url		= get_field( 'navigation_cta_url', 'option' );
-				$navigation_cta_text	= get_field( 'navigation_cta_text', 'option' );
-				$navigation_cta_target	= get_field( 'navigation_cta_target', 'option' );
+				$navigation_cta_url     = get_field( 'navigation_cta_url', 'option' );
+				$navigation_cta_text    = get_field( 'navigation_cta_text', 'option' );
+				$navigation_cta_target  = get_field( 'navigation_cta_target', 'option' );
 
 				// The site navigation CTA
 				if ( $navigation_cta_text
-					 && $navigation_cta_url ) { ?>
+					 && $navigation_cta_url ) {
+						?>
 
 					<div class="navigation-cta">
-						<a href="<?php echo $navigation_cta_url; ?>"
-						   target="<?php echo $navigation_cta_target; ?>" 
+						<a href="<?php echo esc_attr( $navigation_cta_url ); ?>"
+						   target="<?php echo esc_attr( $navigation_cta_target ); ?>" 
 						   class="button button-primary">
-						   <?php echo $navigation_cta_text; ?>
-					   	</a><!-- .button -->
+							<?php echo esc_html( $navigation_cta_text ); ?>
+						   </a><!-- .button -->
 					</div><!-- .navigation-cta -->
 
-				<?php } 
+				<?php
+				}
 
 				// The primary navigation
 				?>
 				<nav class="primary-navigation">
-					<?php echo $header_menu_locations[ 'primary' ]; ?>
+					<?php
+					echo wp_kses(
+						$header_menu_locations['primary'],
+						array(
+							'li' => array(
+								'class' => array(),
+							),
+							'a'  => array(
+								'href'  => array(),
+							),
+						)
+					);
+					?>
 				</nav><!-- .primary-navigation -->
 				
 			</div><!-- .site-navigation -->
@@ -143,4 +174,3 @@
 	</header><!-- .site-header -->
 
 	<div id="content" class="site-content">
-	

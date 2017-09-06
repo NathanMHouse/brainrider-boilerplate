@@ -1,10 +1,12 @@
 <?php
 /**
+ * 404 Template
+ *
  * The template for display not found 404 pages (src)
  *
  *
  * @package Brainrider-Boilerplate
- * @since	1.0.0
+ * @since   1.0.0
  *
  */
 

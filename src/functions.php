@@ -1,5 +1,7 @@
 <?php
 /**
+ * Functions File
+ *
  * Functions and definitions (src)
  *
  * @package Brainrider-Boilerplate
@@ -20,14 +22,14 @@
 ?.? Theme Setup
 --------------------------------------------------------------*/
 /**
- * ?.? Set Up Theme 
+ * ?.? Set Up Theme
  *
  * Sets up theme defaults and registers support for various WordPress features.
  */
 if ( ! function_exists( 'br_bp_setup' ) ) :
 
 	function br_bp_setup() {
-	
+
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
 
@@ -39,29 +41,31 @@ if ( ! function_exists( 'br_bp_setup' ) ) :
 
 		// Switch default core markup for search form, comment forms, and
 		// comments to output valid HTML5.
-		add_theme_support( 'html5', array(
+		add_theme_support(
+			'html5', array(
 				'search-form',
 				'comment-form',
 				'comment-list',
 				'gallery',
 				'caption',
-		) );
+			)
+		);
 
 		// Register menu locations
-		register_nav_menus( array(
+		register_nav_menus(
+			array(
 
-			// Header menus
-			'primary'	=> __( 'Header Primary Menu', 'brainrider-boilerplate' ),
-			'secondary' => __( 'Header Secondary Menu', 'brainrider-boilerplate' ),
+				// Header menus
+				'primary'   => __( 'Header Primary Menu', 'brainrider-boilerplate' ),
+				'secondary' => __( 'Header Secondary Menu', 'brainrider-boilerplate' ),
 
-			// Add other header menus as appropriate
-			// ...
+				// Add other header menus as appropriate
 
-			// Footer menus
+				// Footer menus
 
-			// Add footer menus as appropriate
-			// ...
-		) );
+				// Add footer menus as appropriate
+			)
+		);
 	}
 endif;
 add_action( 'after_setup_theme', 'br_bp_setup' );
@@ -74,17 +78,19 @@ add_action( 'after_setup_theme', 'br_bp_setup' );
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
- function br_bp_widgets_init() {
- 	register_sidebar( array(
- 			'name'			=> esc_html__( 'Sidebar 1', 'test-project' ),
- 			'id'			=> 'sidebar-1',
- 			'description'	=> esc_html__( 'Add widgets here.', 'test-project' ),
- 			'before_widget'	=> '<section>',
- 			'after_widget'	=> '</section>',
- 			'before_title'	=> '<h2 class="widget-title">',
- 			'after_title'	=> '</h2>',
-	) );
- }
+function br_bp_widgets_init() {
+	 register_sidebar(
+		 array(
+			 'name'          => esc_html__( 'Sidebar 1', 'test-project' ),
+			 'id'            => 'sidebar-1',
+			 'description'   => esc_html__( 'Add widgets here.', 'test-project' ),
+			 'before_widget' => '<section>',
+			 'after_widget'  => '</section>',
+			 'before_title'  => '<h2 class="widget-title">',
+			 'after_title'   => '</h2>',
+		 )
+	 );
+}
  add_action( 'widgets_init', 'br_bp_widgets_init' );
 
 
@@ -94,17 +100,17 @@ add_action( 'after_setup_theme', 'br_bp_setup' );
  * Include relevant functions depending upon certain conditionals.
  *
  */
- function br_bp_conditionally_include_functions() {
+function br_bp_conditionally_include_functions() {
 
- 	$dir = get_template_directory();
+	 $dir = get_template_directory();
 
- 	// Include admin functions
- 	if ( is_admin() ) {
+	 // Include admin functions
+	if ( is_admin() ) {
 
- 		// Options pages
- 		include $dir . '/inc/options-pages.php';
- 	}
- }
+		// Options pages
+		include $dir . '/inc/options-pages.php';
+	}
+}
  br_bp_conditionally_include_functions();
 
 

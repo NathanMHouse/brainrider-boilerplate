@@ -1,10 +1,12 @@
 <?php
 /**
+ * Archive Template
+ *
  * The template for displaying index pages (src)
  *
  *
  * @package Brainrider-Boilerplate
- * @since	1.0.0
+ * @since   1.0.0
  *
  */
 
@@ -14,7 +16,8 @@ get_header(); ?>
 		<main id="main" class="site-main">
 
 		<?php
-		if ( have_posts() ) : ?>
+		if ( have_posts() ) :
+		?>
 
 			<header class="page-header">
 				<?php
@@ -24,7 +27,9 @@ get_header(); ?>
 			</header><!-- .page-header -->
 
 			<?php
-			while ( have_posts() ) : the_post();
+			while ( have_posts() ) :
+
+				the_post();
 
 				get_template_part( 'template-parts/content', get_post_format() );
 
@@ -36,7 +41,8 @@ get_header(); ?>
 
 			get_template_part( 'template-parts/content', 'none' );
 
-		endif; ?>
+		endif;
+		?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->

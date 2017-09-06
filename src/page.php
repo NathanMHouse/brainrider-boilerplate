@@ -1,24 +1,28 @@
 <?php
 /**
+ * Page Template
+ *
  * The template for displaying all pages (src)
  *
  *
  * @package Brainrider-Boilerplate
- * @since	1.0.0
+ * @since   1.0.0
  *
  */
 
 get_header();
-	if ( have_posts() ) :
+if ( have_posts() ) :
 
-		// Get page title
-		get_template_part( 'template-parts/module', 'title' );
+	// Get page title
+	get_template_part( 'template-parts/module', 'title' );
 
-		while ( have_posts() ) : the_post();
+	while ( have_posts() ) :
 
-			// Get page content
-			get_template_part( 'template-parts/content', 'page' );
+		the_post();
 
-		endwhile;
-	endif;
+		// Get page content
+		get_template_part( 'template-parts/content', 'page' );
+
+	endwhile;
+endif;
 get_footer();
