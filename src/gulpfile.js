@@ -145,6 +145,7 @@ gulp.task('build', function(callback) {
 gulp.task('regex', function() {
 	gulp.src([
 		'template-parts/**/*.php',
+		'page-templates/**/*.php',
 		'./*.php'
 	], {'base': './'})
 	.pipe(replace('brainrider-boilerplate', config.project.textdomain))
@@ -165,6 +166,7 @@ gulp.task('files', function() {
 	gulp.src([
 		'./*.php',
 		'template-parts/**/*',
+		'page-templates/**/*.php',
 		'inc/**/*',
 		'screenshot.png',
 		'readme.txt'
@@ -198,7 +200,7 @@ gulp.task('watch', function() {
  	gulp.watch('scss/**/*.scss', ['styles', 'lint:scss']);
 	gulp.watch(['js/custom/*.js'], ['custom:js', 'lint:js']);
 	gulp.watch(['js/vendor/*.js'], ['vendor:js', 'lint:js']);
-	gulp.watch(['*.html', '*.php', 'template-parts/**/*', 'inc/**/*'], ['files:update']);
+	gulp.watch(['*.html', '*.php', 'template-parts/**/*', 'page-templates/**/*.php', 'inc/**/*'], ['files:update']);
 	gulp.watch(['img/raw/**/*'], ['images']);
  	gulp.watch('js/**/*.js', browserSync.reload);
  	gulp.watch('img/**/*', browserSync.reload);
@@ -244,6 +246,7 @@ gulp.task('clean', function() {
  		'scss/_sprites.scss',
  		'../[^index]*.php',
  		'../template-parts',
+ 		'../page-templates',
  		'../inc'
  		'../style.min.css',
  		'../screenshot.png',
