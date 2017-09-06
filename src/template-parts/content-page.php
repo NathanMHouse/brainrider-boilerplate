@@ -2,7 +2,7 @@
 /**
  * Content Page Template
  *
- * Template part for displaying page content (src)
+ * Content template part for displaying page content (src)
  *
  *
  * @package Brainrider-Boilerplate

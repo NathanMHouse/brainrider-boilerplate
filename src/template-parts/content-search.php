@@ -2,7 +2,7 @@
 /**
  * Content Search Template
  *
- * Template part for displaying results in search pages (src)
+ * Content template part for displaying results in search pages (src)
  *
  *
  * @package Brainrider-Boilerplate

@@ -2,7 +2,7 @@
 /**
  * Content None Template
  *
- * Template part for displaying content when no posts can be found (src)
+ * Content template part for displaying content when no posts can be found (src)
  *
  * @package Brainrider-Boilerplate
  * @since   1.0.0
