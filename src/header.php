@@ -117,6 +117,9 @@
 					echo wp_kses(
 						$header_menu_locations['secondary'],
 						array(
+							'ul' => array(
+								'class' => array(),
+							),
 							'li' => array(
 								'class' => array(),
 							),
@@ -158,6 +161,9 @@
 					echo wp_kses(
 						$header_menu_locations['primary'],
 						array(
+							'ul' => array(
+								'class' => array(),
+							),
 							'li' => array(
 								'class' => array(),
 							),

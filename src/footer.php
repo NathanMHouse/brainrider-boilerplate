@@ -139,6 +139,9 @@
 										echo wp_kses(
 											$footer_menus['footer_primary']['menu'],
 											array(
+												'ul' => array(
+													'class' => array(),
+												),
 												'li' => array(
 													'id'    => array(),
 													'class' => array(),
@@ -163,6 +166,9 @@
 										echo wp_kses(
 											$footer_menus['footer_secondary']['menu'],
 											array(
+												'ul' => array(
+													'class' => array(),
+												),
 												'li' => array(
 													'id'    => array(),
 													'class' => array(),
