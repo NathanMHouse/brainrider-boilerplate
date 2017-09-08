@@ -43,7 +43,7 @@
  * ?.?
  */
 // Configuration File
- var config			= require('./gulp/gulp-config'),
+ var config			= require('./gulp-config'),
 
 // Gulp
 	gulp			= require('gulp'),
