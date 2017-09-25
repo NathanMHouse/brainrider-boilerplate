@@ -247,7 +247,7 @@ gulp.task('clean', function() {
  		'../[^index]*.php',
  		'../template-parts',
  		'../page-templates',
- 		'../inc'
+ 		'../inc',
  		'../style.min.css',
  		'../screenshot.png',
  		'../readme.txt',
