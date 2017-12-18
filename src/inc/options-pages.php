@@ -14,7 +14,7 @@
  * @since	1.0.0
  * @return	void
  */
-function br_add_options_pages() {
+function br_bp_add_options_pages() {
 
 	// Only add options pages in the admin
 	if ( ! is_admin() ) {

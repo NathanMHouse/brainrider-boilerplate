@@ -146,6 +146,7 @@ gulp.task('regex', function() {
 	gulp.src([
 		'template-parts/**/*.php',
 		'page-templates/**/*.php',
+		'inc/**/*.php',
 		'./*.php'
 	], {'base': './'})
 	.pipe(replace('brainrider-boilerplate', config.project.textdomain))
