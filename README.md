@@ -4,7 +4,7 @@ WordPress starter theme and associated gulp workflow files. Developed as part of
 
 ## Getting Started
 
-For an automated setup, use in conjuction with Brainrider workflow.
+For an automated setup, use in conjuction with [Brainrider workflow](https://github.com/NathanMHouse/brainrider-workflow).
 
 As a standalone, can be installed as per standard WordPress custom theme development. To initialize gulp workflow, ensure prerequisites have been installed and reference the associated npm and bower modules (i.e. npm install etc.).
 
